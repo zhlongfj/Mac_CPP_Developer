@@ -1,5 +1,7 @@
 # Mac_CPP_Developer
 
+## Mac C++开发环境设置
+
 ## Table of Contents
 
 1. [macOS](#1-macos)
@@ -28,6 +30,8 @@
        - [SDK:AndroidStudio](#SDK:AndroidStudio)
        - [JDK:Java8](#JDK:Java8)
        - [NDK:从Qt配置](#NDK:从Qt配置)
+
+4. [编译Android程序](#4-编译Android程序)
 
 
 ## 1. macOS
@@ -146,6 +150,10 @@ MacDown 是 Markdown 编辑器。由于 Mou 一直不支持代码高亮，我就
 * build-tools;30.0.2
 * ndk;21.3.6528147
 
+### 编译Android程序
+编译时，会下载[gradle-5.6.4](https://services.gradle.org/distributions/gradle-5.6.4-bin.zip)，但是该库下载慢，而且可能失败，可以手动下载，并放到目录：`/Users/hualongzhang/.gradle/wrapper/dists/gradle-5.6.4-bin/bxirm19lnfz6nurbatndyydux`（该路径可以通过Qt编译信息中得知）
+
 ## 参考资料
 
 - [强迫症的 Mac 设置指南](https://github.com/macdao/ocds-guide-to-setting-up-mac#oh-my-zsh)
+
