@@ -25,9 +25,9 @@
    - [Qt5.15](#Qt5.15)
    - [Clion](#Clion)
    - [Java三件套](#Java三件套)
-   		- [SDK:AndroidStudio](#SDK:AndroidStudio)
-   		- [JDK:Java8](#JDK:Java8)
-   		- [NDK:从Qt配置](#NDK:从Qt配置)
+       - [SDK:AndroidStudio](#SDK:AndroidStudio)
+       - [JDK:Java8](#JDK:Java8)
+       - [NDK:从Qt配置](#NDK:从Qt配置)
 
 
 ## 1. macOS
