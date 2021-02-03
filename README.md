@@ -1,6 +1,6 @@
 # Mac_CPP_Developer
 
-## Mac C++开发环境设置
+# Mac C++开发环境设置
 
 ## Table of Contents
 
@@ -30,8 +30,9 @@
        - [SDK:AndroidStudio](#SDK:AndroidStudio)
        - [JDK:Java8](#JDK:Java8)
        - [NDK:从Qt配置](#NDK:从Qt配置)
+   - [编译Android程序](#4-编译Android程序)
 
-4. [编译Android程序](#4-编译Android程序)
+4. [Clion中配置Qt项目](#4-Clion中配置Qt项目)
 
 
 ## 1. macOS
@@ -153,7 +154,49 @@ MacDown 是 Markdown 编辑器。由于 Mou 一直不支持代码高亮，我就
 ### 编译Android程序
 编译时，会下载[gradle-5.6.4](https://services.gradle.org/distributions/gradle-5.6.4-bin.zip)，但是该库下载慢，而且可能失败，可以手动下载，并放到目录：`/Users/hualongzhang/.gradle/wrapper/dists/gradle-5.6.4-bin/bxirm19lnfz6nurbatndyydux`（该路径可以通过Qt编译信息中得知）
 
+## 4. Clion配置Qt项目
+### CLion创建的工程
+1 创建Qt项目，并在CMakelists.txt的project()后面添加以下脚本，即可编译：
+```
+set(CMAKE_PREFIX_PATH "/Users/hualongzhang/Qt/5.15.2")
+set(Qt5_DIR "${CMAKE_PREFIX_PATH}/clang_64/lib/cmake/Qt5")
+```
+2 完成的CMakelists.txt如下：
+
+```
+cmake_minimum_required(VERSION 3.17)
+project(qtdemo)
+
+set(CMAKE_PREFIX_PATH "/Users/hualongzhang/Qt/5.15.2")
+set(Qt5_DIR "${CMAKE_PREFIX_PATH}/clang_64/lib/cmake/Qt5")
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+
+set(QT_VERSION 5)
+set(REQUIRED_LIBS Core Gui Widgets)
+set(REQUIRED_LIBS_QUALIFIED Qt5::Core Qt5::Gui Qt5::Widgets)
+
+add_executable(${PROJECT_NAME} main.cpp)
+
+if (NOT CMAKE_PREFIX_PATH)
+    message(WARNING "CMAKE_PREFIX_PATH is not defined, you may need to set it "
+            "(-DCMAKE_PREFIX_PATH=\"path/to/Qt/lib/cmake\" or -DCMAKE_PREFIX_PATH=/usr/include/{host}/qt{version}/ on Ubuntu)")
+endif ()
+
+find_package(Qt${QT_VERSION} COMPONENTS ${REQUIRED_LIBS} REQUIRED)
+target_link_libraries(${PROJECT_NAME} ${REQUIRED_LIBS_QUALIFIED})
+```
+
+### Qt Creator创建的工程
+创建Qt项目，通过CLion打开
+
+* 在find_package前增加：`set(QT_VERSION_MAJOR 5)`
+* 移除：`find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick REQUIRED)`
+
+
 ## 参考资料
 
 - [强迫症的 Mac 设置指南](https://github.com/macdao/ocds-guide-to-setting-up-mac#oh-my-zsh)
-
