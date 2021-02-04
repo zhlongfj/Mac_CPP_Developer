@@ -119,9 +119,9 @@ iTerm2 是最常用的终端应用，是 Terminal 应用的替代品。提供了
 
 ### [Oh My Zsh](http://ohmyz.sh)
 
-默认的 Bash （Catalina 已经默认使用 Zsh）是黑白的，没有色彩。而 Oh My Zsh 可以带你进入彩色时代。Oh My Zsh 同时提供一套插件和工具，可以简化命令行操作。后面我们会看到很多介绍，你会看到我爱死这家伙了。
+默认的 Bash （Catalina 已经默认使用 Zsh）是黑白的，没有色彩。而 Oh My Zsh 可以带你进入彩色时代。Oh My Zsh 同时提供一套插件和工具，可以简化命令行操作。后面我们会看到很多介绍，你会看到我爱死这家伙了，安装了oh my zsh后，可以使用如下git缩写：https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git/。
 
-安装方法：。
+安装方法：https://zhuanlan.zhihu.com/p/58073103。
 
 ### MacDown
 
